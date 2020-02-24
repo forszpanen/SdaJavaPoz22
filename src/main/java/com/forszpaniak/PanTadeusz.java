@@ -13,6 +13,11 @@ import java.util.TreeSet;
 
 public class PanTadeusz {
 
+    static{
+        System.out.println("SSSS");
+    }
+
+
     public static void main(String[] args) throws IOException, URISyntaxException {
         //Path currentDir = Path.of(".");
         //System.out.println(currentDir.toAbsolutePath());
@@ -28,8 +33,13 @@ public class PanTadeusz {
             }
             Integer counter = count.getOrDefault(word, 0);
             counter++;
+            if(word.length()==0){
+                System.out.println(word);
+            }
             count.put(word, counter);
         }
+
+        count.entrySet().forEach( entry ->  System.out.println(entry.getKey()  + '[' + entry.getValue() + ']'));
 
         Comparator<Map.Entry<String, Integer>> comparator = new Comparator<>() {
             public int compare(Map.Entry<String, Integer> e1, Map.Entry<String, Integer> e2) {
